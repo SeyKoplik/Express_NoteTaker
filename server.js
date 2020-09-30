@@ -33,3 +33,6 @@ app.use(express.static("public"));
 
 //URLs matter and key value pairs matter in index.js
 
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}/`)  
+})
