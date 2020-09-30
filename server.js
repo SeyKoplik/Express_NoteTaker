@@ -1,13 +1,17 @@
 const express = require("express");
-//add path
-var http = require("http");
+const path = require("path");
+const http = require("http");
 const fs = require("fs");
 ​
-var app = express();
-var PORT = 5000;
+const app = express();
+const PORT = process.env.PORT || 3000;
 
+// Sets up Express App to handle data parsing
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-/// check starwars activities to get clues
+// Code to serve images, CSS files, and JavaScript files in a directory named publi
+app.use(express.static("public"));
 
 // API Routes
 
@@ -24,7 +28,6 @@ var PORT = 5000;
     // /api/notes/1 << ref back to db.json
 
 // HTML Routes
-app.use(express.static("public"));
 
 // GET /notes >> goes to notes.html
 // GET * (everything) >> goes to index.html 
